@@ -6,24 +6,21 @@ const registerUser = async (request, response) => {
     try {
         // Recebe os dados do corpo da requisição (form)
         const { full_name, email, password } = request.body;
-        console.log('Dados do corpo da requisição (form): ', full_name, email, password);   // LOG
 
         // Verifica se o e-mail informado está em uso
         const userExists = await User.findOne({ where: { email } });
         if (userExists) {
-            return response.status(409).json({ message: 'Este e-mail já está sendo utilizado.' });
+            return response.status(409).json({ success: false, message: 'Este e-mail já está sendo utilizado.', });
         }
 
         // Cadastra o usuário na DB
         const newUser = await User.create({ full_name, email, password });
-        console.log('Usuário cadastrado: ', newUser);   // LOG
 
         // Retorna o usuário criado
-        response.status(201).json({ message: 'Usuário cadastrado.', });
+        response.status(201).json({ success: true, message: 'Usuário cadastrado.',  });
 
     } catch (error) {
-        console.log('Este e-mail já está sendo utilizado.'); // LOG
-        response.status(500).json({ error: 'Este e-mail já está sendo utilizado.' });
+        response.status(500).json({ success: false, message: 'Este e-mail já está sendo utilizado.', });
     }
 }
 

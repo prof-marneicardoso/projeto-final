@@ -2,8 +2,45 @@
 import Header from '../components/Header/Header';
 import Button from '../components/Button/Button';
 import { apiRequest } from "../utils/apiRequest.js";
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 function UserCreate() {
+    // Hook para redirecionar
+    const navigate = useNavigate();
+
+    // Hook para mostrar a mensagem de erro ou sucesso
+    const [authMessage, setAuthMessage ] = useState();
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData.entries());
+        const statusMessage = document.querySelector('#statusMessage');
+        
+        apiRequest('register', 'POST', data)
+            .then((response) => {
+                console.log(response);
+                
+                if (response.success) {
+                    // Exibe a mensagem de sucesso (da API)
+                    setAuthMessage(response.message);
+                    statusMessage.style.display = 'block';
+                    statusMessage.style.color = 'var(--success)';
+
+                    // Redireciona para a página inicial
+                    setTimeout(() => {
+                        navigate('/users/login');
+                    }, 2000);
+                
+                } else {
+                    setAuthMessage(response.message);
+                    statusMessage.style.display = 'block';
+                }
+            });
+    };
+
     return (
         <>
             <Header />
@@ -23,22 +60,11 @@ function UserCreate() {
 
                     <Button text="Cadastrar" />
                 </form>
+
+                <div id="statusMessage">{authMessage}</div>
             </main>
         </>
     );
 }
-
-const handleSubmit = (event) => {
-    event.preventDefault();
-    
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
-    console.log(data);
-    
-    apiRequest('register', 'POST', data)
-        .then((data) => {
-            console.log(data);
-        });
-};
 
 export default UserCreate;
