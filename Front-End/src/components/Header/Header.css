@@ -1,0 +1,24 @@
+
+header {
+    padding: 1rem 3rem;
+    background-color: var(--light-gray-2);
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+li a {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--dark-gray);
+}
+
+li a:hover {
+    color: var(--primary);
+}

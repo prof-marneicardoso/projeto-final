@@ -16,10 +16,10 @@ const registerUser = async (request, response) => {
 
         // Cadastra o usuário na DB
         const newUser = await User.create({ full_name, email, password });
-        console.log('Dados cadastrados: ', newUser);   // LOG
+        console.log('Usuário cadastrado: ', newUser);   // LOG
 
         // Retorna o usuário criado
-        response.status(201).json(newUser);
+        response.status(201).json({ message: 'Usuário cadastrado.', });
 
     } catch (error) {
         console.log('Este e-mail já está sendo utilizado.'); // LOG

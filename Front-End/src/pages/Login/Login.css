@@ -1,0 +1,31 @@
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 25rem;
+}
+
+label {
+    font-size: 1.2rem;
+    margin-top: 0.8rem;
+}
+
+input {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 0.1rem solid var(--light-gray);
+    width: 100%;
+}
+
+button {
+    margin: 1rem 0;
+}
+
+#statusMessage {
+    display: none;
+    color: var(--error);
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}

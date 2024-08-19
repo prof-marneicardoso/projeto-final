@@ -1,99 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Front-End</title>
-    <link rel="stylesheet" href="./css/index.css">
-</head>
-<body>
-    <h3>Front-End</h3>
-
-    <!-- version: 0.3 -->
-    <!-- <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="#" onclick="handleAction('register')">Cadastrar</a></li>
-        <li><a href="#" onclick="handleAction('login')">Login</a></li>
-        <li><a href="#" onclick="handleAction('getUsers')">Buscar Usuários (todos)</a></li>
-        <li><a href="#" onclick="handleAction('getUser', { id: 1 })">Buscar um Usuário (ID)</a></li>
-        <li><a href="#" onclick="handleAction('updateUser', { id: 1 })">Atualizar Usuário (ID)</a></li>
-        <li><a href="#" onclick="handleAction('deleteUser', { id: 1 })">Excluir Usuário (ID)</a></li>
-    </ul>
-    
-    <form id="form" style="display:none;">
-        <input type="text" name="full_name" placeholder="Nome Completo">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Senha">
-        <button type="submit">Enviar</button>
-    </form> -->
-
-
-    <!-- version: 0.2 -->
-    <ul>
-        <li><a href="./index.html">Home</a></li>
-    </ul>
-
-    <h4>Cadastrar Usuário</h4>
-    <form id="registerForm">
-        <input type="text" id="full_name" placeholder="Nome Completo" required><br>
-        <input type="email" id="email" placeholder="Email" required><br>
-        <input type="password" id="password" placeholder="Senha" required><br>
-        <button type="submit">Cadastrar</button>
-    </form>
-
-    <h4>Login</h4>
-    <form id="loginForm">
-        <input type="email" id="loginEmail" placeholder="Email" required><br>
-        <input type="password" id="loginPassword" placeholder="Senha" required><br>
-        <button type="submit">Login</button>
-    </form>
-
-    <h4>Buscar Usuário</h4>
-    <form id="getUserForm">
-        <input type="text" id="userId" placeholder="ID do Usuário" required><br>
-        <button type="submit">Buscar</button>
-    </form>
-
-    <h4>Excluir Usuário</h4>
-    <form id="deleteUserForm">
-        <input type="text" id="deleteUserId" placeholder="ID do Usuário" required><br>
-        <button type="submit">Excluir</button>
-    </form>
-
-
-
-    <!-- version: 0.1 -->
-    <!-- <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="http://localhost:3000/api/register">Cadastrar</a></li>
-        <li><a href="http://localhost:3000/api/login">Login</a></li>
-        <li><a href="http://localhost:3000/api/users">Buscar Usuários (todos)</a></li>
-        <li><a href="http://localhost:3000/api/users/{id}">Buscar um Usuário (ID)</a></li>
-        <li><a href="http://localhost:3000/api/users/{id}">Atualizar Usuário (ID)</a></li>
-        <li><a href="http://localhost:3000/api/users/{id}">Excluir Usuário (ID)</a></li>
-    </ul> -->
-
-
-    <script src="./js/index.js"></script>
-</body>
+    <link rel="shortcut icon" href="./src/assets/react_logo.svg" type="image/x-icon">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
-
-<!--
-Cadastrar (POST)
-http://localhost:3000/api/register
-
-Login (POST)
-http://localhost:3000/api/login
-
-Buscar usuários (GET)
-http://localhost:3000/api/users
-
-Buscar um usuário (GET: ID)
-http://localhost:3000/api/users/{id}
-
-Atualizar usuário (PUT)
-http://localhost:3000/api/users/{id}
-
-Excluir um usuário (DELETE)
-http://localhost:3000/api/users/{id}
--->
